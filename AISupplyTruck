@@ -1,0 +1,61 @@
+WorldLoaded = function()
+	p1 = Player.GetPlayer("Multi0")
+	p2 = Player.GetPlayer("Multi1")
+
+	p1cash()
+
+end
+
+p1cash = function()
+	if p1.IsBot then
+		citybottruck = p1.GetActorsByType("citybottruck")
+		for _,trucks in pairs(citybottruck) do
+
+			if p1.IsAlliedWith(p2) then
+				fact = p2.GetActorsByType("fact")
+				for _,fact in pairs(fact) do
+					trucks.DeliverCash(fact)
+				end
+			end
+
+			if p1.IsAlliedWith(p2) then
+				pyle = p2.GetActorsByType("pyle")
+				for _,pyle in pairs(pyle) do
+					trucks.DeliverCash(pyle)
+				end
+			end
+
+			if p1.IsAlliedWith(p2) then
+				hand = p2.GetActorsByType("hand")
+				for _,hand in pairs(hand) do
+					trucks.DeliverCash(hand)
+				end
+			end
+
+			if p1.IsAlliedWith(p2) then
+				weap = p2.GetActorsByType("weap")
+				for _,weap in pairs(weap) do
+					trucks.DeliverCash(weap)
+				end
+			end
+
+			if p1.IsAlliedWith(p2) then
+				afld = p2.GetActorsByType("afld")
+				for _,afld in pairs(afld) do
+					trucks.DeliverCash(afld)
+				end
+			end
+
+			if p1.IsAlliedWith(p2) then
+				hpad = p2.GetActorsByType("hpad")
+				for _,hpad in pairs(hpad) do
+					trucks.DeliverCash(hpad)
+				end
+			end
+
+		end
+	end
+	Trigger.AfterDelay(DateTime.Seconds(3), function()
+		p1cash()
+	end)
+end
